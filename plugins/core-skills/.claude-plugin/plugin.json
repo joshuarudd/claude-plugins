@@ -1,8 +1,10 @@
 {
   "name": "core-skills",
-  "description": "General improvements to Claude’s behavior.",
+  "description": "General improvements to Claude's behavior.",
   "version": "1.0.0",
   "author": {
     "name": "Joshua Rudd"
-  }
+  },
+  "license": "MIT",
+  "repository": "https://github.com/joshuarudd/claude-plugins"
 }

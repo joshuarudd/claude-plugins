@@ -64,6 +64,9 @@ Your instructions for Claude go here.
 | `user-invocable` | Set `false` to hide from the `/` menu (Claude-only) |
 | `allowed-tools` | Restrict which tools Claude can use (e.g., `Read, Grep, Glob`) |
 | `context` | Set to `fork` to run in a subagent |
+| `argument-hint` | Hint shown during autocomplete (e.g., `<filename>`) |
+| `model` | Model to use when skill is active |
+| `agent` | Subagent type when `context: fork` is set |
 
 ### Using Arguments
 
@@ -122,4 +125,5 @@ Before submitting a new plugin:
 - [ ] SKILL.md has a `description` in frontmatter
 - [ ] Plugin is registered in `marketplace.json`
 - [ ] Tested with `claude --plugin-dir`
+- [ ] Validated with `claude plugin validate .`
 - [ ] README.md describes what the plugin does

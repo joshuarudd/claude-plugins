@@ -1,18 +1,15 @@
 {
   "name": "custom-claude-plugins",
+  "description": "Joshua Rudd's personal plugin marketplace for Claude Code.",
   "owner": {
     "name": "Joshua Rudd"
-  },
-  "metadata": {
-    "description": "Joshua Rudd’s personal plugin marketplace for Claude Code skills, etc.",
-    "version": "0.1.0",
-    "pluginRoot": "./plugins"
   },
   "plugins": [
     {
       "name": "core-skills",
       "source": "./plugins/core-skills",
-      "description": "General improvements to Claude’s behavior."
+      "description": "General improvements to Claude's behavior.",
+      "version": "1.0.0"
     }
   ]
 }

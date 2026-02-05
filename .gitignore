@@ -10,5 +10,8 @@ Thumbs.db
 .vscode/
 *.sublime-workspace
 
+# Claude Code local settings (machine-specific)
+.claude/settings.local.json
+
 # Node (in case any plugin uses scripts)
 node_modules/
