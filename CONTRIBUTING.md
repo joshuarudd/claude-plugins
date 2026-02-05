@@ -2,9 +2,9 @@
 
 ## Quick Start
 
-1. Copy the template:
+1. Copy an existing plugin as a starting point (e.g., `core-skills`):
    ```bash
-   cp -r plugins/_template plugins/your-plugin-name
+   cp -r plugins/core-skills plugins/your-plugin-name
    ```
 
 2. Update `plugins/your-plugin-name/.claude-plugin/plugin.json`:

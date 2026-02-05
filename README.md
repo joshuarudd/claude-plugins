@@ -32,14 +32,14 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add your own.
 
 The quickest way to create a new plugin:
 
-1. Copy the template directory:
+1. Copy an existing plugin as a starting point (e.g., `core-skills`):
    ```bash
-   cp -r plugins/_template plugins/your-plugin-name
+   cp -r plugins/core-skills plugins/your-plugin-name
    ```
 
 2. Edit the plugin manifest at `plugins/your-plugin-name/.claude-plugin/plugin.json` — update the `name`, `description`, and `author` fields.
 
-3. Edit or replace the example skill at `plugins/your-plugin-name/skills/example/SKILL.md` with your own skill definition.
+3. Replace the skills under `plugins/your-plugin-name/skills/` with your own skill directories, each containing a `SKILL.md`.
 
 4. Register the plugin in `.claude-plugin/marketplace.json` by adding an entry to the `plugins` array:
    ```json
