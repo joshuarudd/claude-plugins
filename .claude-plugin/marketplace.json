@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "core-skills",
-      "source": "core-skills",
+      "source": "./plugins/core-skills",
       "description": "General improvements to Claude’s behavior."
     }
   ]
