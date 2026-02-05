@@ -10,6 +10,12 @@
       "source": "./plugins/core-skills",
       "description": "General improvements to Claude's behavior.",
       "version": "1.0.0"
+    },
+    {
+      "name": "product-development",
+      "source": "./plugins/product-development",
+      "description": "Skills for product development workflows including issue tracking and feedback capture.",
+      "version": "1.0.0"
     }
   ]
 }
