@@ -25,7 +25,7 @@
    ```json
    {
      "name": "your-plugin-name",
-     "source": "your-plugin-name",
+     "source": "./plugins/your-plugin-name",
      "description": "Brief description of what your plugin does"
    }
    ```

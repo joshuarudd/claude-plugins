@@ -45,7 +45,7 @@ The quickest way to create a new plugin:
    ```json
    {
      "name": "your-plugin-name",
-     "source": "your-plugin-name",
+     "source": "./plugins/your-plugin-name",
      "description": "What your plugin does"
    }
    ```
