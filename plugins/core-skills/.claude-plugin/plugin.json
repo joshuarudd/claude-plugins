@@ -1,0 +1,8 @@
+{
+  "name": "core-skills",
+  "description": "General improvements to Claude's behavior — date lookups, and more to come.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Joshua Rudd"
+  }
+}
