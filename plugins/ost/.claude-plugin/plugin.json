@@ -1,0 +1,10 @@
+{
+  "name": "ost",
+  "description": "Opportunity Solution Tree (OST) workflows for continuous discovery. Capture feedback, process transcripts, and map opportunities using Notion as the data layer.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Joshua Rudd"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/joshuarudd/claude-plugins"
+}

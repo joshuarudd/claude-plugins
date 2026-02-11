@@ -16,6 +16,12 @@
       "source": "./plugins/product-development",
       "description": "Skills for product development workflows including issue tracking and feedback capture.",
       "version": "1.0.0"
+    },
+    {
+      "name": "ost",
+      "source": "./plugins/ost",
+      "description": "Opportunity Solution Tree workflows for continuous discovery. Capture feedback, process transcripts, and map opportunities in Notion.",
+      "version": "1.0.0"
     }
   ]
 }
