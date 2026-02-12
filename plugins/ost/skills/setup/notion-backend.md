@@ -49,7 +49,7 @@ Read these IDs from the project's CLAUDE.md before making any Notion API calls. 
 | Initiative | relation | Relation to Initiatives database |
 | Parent | relation | Self-relation to OST Nodes (creates tree hierarchy) |
 | Status | select | Active / Paused / Validated / Invalidated |
-| Confidence | number | 0-100, formatted as percent |
+| Confidence | number | Decimal 0–1 (e.g., 0.5 = 50%). Notion displays as percent. |
 | Evidence Summary | rich_text | One-liner for scanning in table view |
 | Source Interviews | relation | Relation to Interviews database |
 | Priority | select | High / Medium / Low |
@@ -81,9 +81,9 @@ Parameters:
     "properties": {
       "Name": "Users struggle to find settings",
       "Type": "Opportunity",
-      "Initiative": ["<initiative-page-url>"],
+      "Initiative": "<initiative-page-url>",
       "Status": "Active",
-      "Confidence": 50,
+      "Confidence": 0.5,
       "Evidence Summary": "3 users mentioned difficulty finding settings in interviews"
     },
     "body": "## Evidence\n\n- Interview with P1: \"I couldn't find where to change my notification preferences\"\n- Interview with P2: \"The settings menu is buried too deep\""
@@ -111,11 +111,13 @@ Parameters:
 
 ## Relations
 
-Relations are set as arrays of Notion page URLs. To link an OST Node to an Initiative:
+Relations are set as Notion page URL strings when creating pages. To link an OST Node to an Initiative:
 
 ```json
-"Initiative": ["https://www.notion.so/Initiative-Page-Id"]
+"Initiative": "https://www.notion.so/Initiative-Page-Id"
 ```
+
+Note: The Notion MCP `create-pages` tool accepts a single URL string per relation property. To link to multiple pages (e.g., an Interview spanning multiple Initiatives), create with one relation, then use `notion-update-page` to add additional relations.
 
 To find page URLs, use `mcp__claude_ai_Notion__notion-search` and extract URLs from the results.
 

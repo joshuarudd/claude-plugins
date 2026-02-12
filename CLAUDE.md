@@ -22,3 +22,11 @@ This is a personal Claude Code plugin marketplace repository.
 - All paths in configuration files are relative and start with `./`.
 - Every SKILL.md must have a `description` field in its YAML frontmatter.
 - Only `plugin.json` goes inside `.claude-plugin/`. Skills, commands, agents, and hooks go at the plugin root level.
+
+## OST Initiatives
+- OST Tool
+
+## OST Notion Data Sources
+- Initiatives: 304316e4-f7ff-8153-85fd-000b33f0ce5e
+- OST Nodes: 304316e4-f7ff-811d-84f7-000b6d027167
+- Interviews: 304316e4-f7ff-816c-b4ef-000b2699a61f
