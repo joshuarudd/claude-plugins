@@ -5,7 +5,7 @@ Capture feedback, process interview transcripts, and map opportunities using the
 ## Prerequisites
 
 - Notion MCP server connected in Claude Code
-- Three Notion databases: Initiatives, OST Nodes, Interviews (see `backends/notion.md` for schema)
+- Three Notion databases: Initiatives, OST Nodes, Interviews (see `skills/setup/notion-backend.md` for schema)
 
 ## Skills
 
@@ -37,14 +37,7 @@ Add these sections to your project's CLAUDE.md (or run `/ost:setup` to be guided
 
 ## Installation
 
-Add the marketplace, then install the plugin:
-
-```
-claude mcp add-marketplace joshuarudd/claude-plugins
-claude plugin install ost
-```
-
-Or test locally:
+Test locally:
 
 ```
 claude --plugin-dir ./plugins/ost
