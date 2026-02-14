@@ -1,6 +1,6 @@
 {
-  "name": "product-development",
-  "description": "Skills for product development workflows including issue tracking and feedback capture.",
+  "name": "issue-tracker",
+  "description": "Capture and track actionable issues during development sessions.",
   "version": "1.0.0",
   "author": {
     "name": "Joshua Rudd"
