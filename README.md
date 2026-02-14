@@ -1,6 +1,6 @@
-# claude-plugins
+# ruddiments
 
-A plugin marketplace for Claude Code. Contains skills and slash commands that extend Claude Code's capabilities.
+A Claude Code plugin marketplace. Contains skills and slash commands that extend Claude Code's capabilities.
 
 ## What is this?
 
@@ -11,13 +11,13 @@ This is a Claude Code plugin marketplace — a collection of plugins that can be
 Add this marketplace to Claude Code:
 
 ```
-/plugin marketplace add joshuarudd/claude-plugins
+/plugin marketplace add joshuarudd/ruddiments
 ```
 
 Then install any available plugin:
 
 ```
-/plugin install plugin-name@claude-plugins
+/plugin install plugin-name@ruddiments
 ```
 
 ## Available Plugins

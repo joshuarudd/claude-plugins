@@ -11,5 +11,5 @@ Instructs Claude to use the system `date` command instead of calculating the day
 ## Installation
 
 ```
-/plugin install helpers@claude-plugins
+/plugin install helpers@ruddiments
 ```

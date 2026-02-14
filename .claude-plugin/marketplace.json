@@ -1,6 +1,6 @@
 {
-  "name": "joshuarudd-claude-plugins",
-  "description": "Joshua Rudd's personal plugin marketplace for Claude Code.",
+  "name": "ruddiments",
+  "description": "A Claude Code plugin marketplace by Joshua Rudd.",
   "owner": {
     "name": "Joshua Rudd"
   },
