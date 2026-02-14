@@ -6,8 +6,8 @@
   },
   "plugins": [
     {
-      "name": "core-skills",
-      "source": "./plugins/core-skills",
+      "name": "helpers",
+      "source": "./plugins/helpers",
       "description": "General improvements to Claude's behavior.",
       "version": "1.0.0"
     },

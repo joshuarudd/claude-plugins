@@ -2,9 +2,9 @@
 
 ## Quick Start
 
-1. Copy an existing plugin as a starting point (e.g., `core-skills`):
+1. Copy an existing plugin as a starting point (e.g., `helpers`):
    ```bash
-   cp -r plugins/core-skills plugins/your-plugin-name
+   cp -r plugins/helpers plugins/your-plugin-name
    ```
 
 2. Update `plugins/your-plugin-name/.claude-plugin/plugin.json`:

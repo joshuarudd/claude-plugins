@@ -1,5 +1,5 @@
 {
-  "name": "core-skills",
+  "name": "helpers",
   "description": "General improvements to Claude's behavior.",
   "version": "1.0.0",
   "author": {
