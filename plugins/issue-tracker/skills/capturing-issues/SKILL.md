@@ -1,6 +1,6 @@
 ---
-name: capture-issue
-description: Capture review feedback as GitHub issues during development sessions. Use when the user provides feedback, enhancement ideas, bugs, or observations about a project and wants them logged as GitHub issues without disrupting the current working context. Triggers on the /capture-issue slash command or when the user explicitly asks to capture feedback as issues. Supports single and batch issue creation—automatically determines the number of discrete issues from the feedback provided.
+name: capturing-issues
+description: Use when the user provides feedback, enhancement ideas, bugs, or observations during a development session and wants them captured as issues without disrupting the current working context.
 ---
 
 # Issue Capture
