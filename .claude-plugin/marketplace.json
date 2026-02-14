@@ -12,9 +12,9 @@
       "version": "1.0.0"
     },
     {
-      "name": "product-development",
-      "source": "./plugins/product-development",
-      "description": "Skills for product development workflows including issue tracking and feedback capture.",
+      "name": "issue-tracker",
+      "source": "./plugins/issue-tracker",
+      "description": "Capture and track actionable issues during development sessions.",
       "version": "1.0.0"
     },
     {
