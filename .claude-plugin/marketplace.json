@@ -1,13 +1,13 @@
 {
-  "name": "joshuarudd-claude-plugins",
-  "description": "Joshua Rudd's personal plugin marketplace for Claude Code.",
+  "name": "ruddiments",
+  "description": "A Claude Code plugin marketplace by Joshua Rudd.",
   "owner": {
     "name": "Joshua Rudd"
   },
   "plugins": [
     {
-      "name": "core-skills",
-      "source": "./plugins/core-skills",
+      "name": "helpers",
+      "source": "./plugins/helpers",
       "description": "General improvements to Claude's behavior.",
       "version": "1.0.0"
     },

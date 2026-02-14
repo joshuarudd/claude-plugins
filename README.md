@@ -1,6 +1,6 @@
-# claude-plugins
+# ruddiments
 
-A plugin marketplace for Claude Code. Contains skills and slash commands that extend Claude Code's capabilities.
+A Claude Code plugin marketplace. Contains skills and slash commands that extend Claude Code's capabilities.
 
 ## What is this?
 
@@ -11,20 +11,20 @@ This is a Claude Code plugin marketplace — a collection of plugins that can be
 Add this marketplace to Claude Code:
 
 ```
-/plugin marketplace add joshuarudd/claude-plugins
+/plugin marketplace add joshuarudd/ruddiments
 ```
 
 Then install any available plugin:
 
 ```
-/plugin install plugin-name@claude-plugins
+/plugin install plugin-name@ruddiments
 ```
 
 ## Available Plugins
 
 | Plugin | Description |
 |--------|-------------|
-| [core-skills](plugins/core-skills/) | General improvements to Claude's behavior — date lookups, and more to come. |
+| [helpers](plugins/helpers/) | General improvements to Claude's behavior — date lookups, and more to come. |
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add your own.
 
@@ -32,9 +32,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add your own.
 
 The quickest way to create a new plugin:
 
-1. Copy an existing plugin as a starting point (e.g., `core-skills`):
+1. Copy an existing plugin as a starting point (e.g., `helpers`):
    ```bash
-   cp -r plugins/core-skills plugins/your-plugin-name
+   cp -r plugins/helpers plugins/your-plugin-name
    ```
 
 2. Edit the plugin manifest at `plugins/your-plugin-name/.claude-plugin/plugin.json` — update the `name`, `description`, and `author` fields.
