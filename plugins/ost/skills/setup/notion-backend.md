@@ -1,6 +1,47 @@
 # Notion Backend Reference
 
-This file contains all Notion-specific implementation details for the OST plugin. Skills reference this file for tool names, database IDs, and property mappings.
+This file contains all Notion-specific implementation details for the OST plugin. Skills reference this file for configuration, initiative resolution, tool names, database IDs, and property mappings.
+
+## Configuration
+
+The Notion backend is configured in the project's CLAUDE.md:
+
+```markdown
+## OST Configuration
+- backend: notion
+
+## OST Initiatives
+- My Initiative Name
+
+## OST Notion Data Sources
+- Initiatives: <data-source-id>
+- OST Nodes: <data-source-id>
+- Interviews: <data-source-id>
+```
+
+**Legacy detection:** If no `## OST Configuration` section exists but `## OST Notion Data Sources` is present, treat as Notion backend.
+
+### Confidence scale
+
+Notion uses decimal **0–1** (e.g., `Confidence: 0.5`). Notion displays this as a percentage automatically. The markdown backend uses integer 0–100 instead.
+
+## Initiative Resolution
+
+Every skill that operates on a specific initiative follows these steps.
+
+### 1. Read the initiatives list
+
+Check the project's CLAUDE.md for an `## OST Initiatives` section. Each initiative is listed as `- name` where name matches an Initiative entry in the Notion database.
+
+### 2. Select an initiative
+
+- **One initiative listed** — use it automatically.
+- **Multiple listed** — if `$ARGUMENTS` matches (or is a substring of) a listed value, use it; otherwise show the list and ask the user.
+- **None listed** — query Notion for Active initiatives using `mcp__claude_ai_Notion__notion-search` and ask the user to pick one.
+
+### 3. Resolve in Notion
+
+Search for the selected initiative name in the Initiatives database. Resolve its Notion page URL for use in relation properties when creating or linking OST nodes.
 
 ## MCP Tools
 

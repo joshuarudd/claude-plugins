@@ -9,7 +9,7 @@ Query the configured backend and display the Opportunity Solution Tree as a hier
 
 ## Workflow
 
-1. Resolve initiative and load backend config. See `skills/setup/initiative-resolution.md`.
+1. Resolve backend and initiative: read `## OST Configuration` from the project's CLAUDE.md to determine the backend. Read `skills/setup/markdown-backend.md` or `skills/setup/notion-backend.md` accordingly. Follow the **Initiative Resolution** section to select the target initiative.
 2. Retrieve all OST nodes.
 3. Build the tree by following parent relationships.
 4. Display using the format below.
@@ -21,7 +21,7 @@ Query the configured backend and display the Opportunity Solution Tree as a hier
 
 #### Markdown backend
 
-1. Use the resolved initiative path (from initiative resolution in Step 1 of Workflow).
+1. Use the resolved initiative path from Step 1.
 2. Glob all `{initiative-path}/OST/**/*.md` files.
 3. Read each file's frontmatter: `ost-type`, `status`, `confidence`, `parent`, `evidence-summary`.
 

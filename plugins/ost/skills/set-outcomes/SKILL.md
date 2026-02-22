@@ -9,7 +9,7 @@ Define or modify the root Outcome nodes for an initiative's OST.
 
 ## Workflow
 
-1. Resolve initiative and load backend config. See `skills/setup/initiative-resolution.md`.
+1. Resolve backend and initiative: read `## OST Configuration` from the project's CLAUDE.md to determine the backend. Read `skills/setup/markdown-backend.md` or `skills/setup/notion-backend.md` accordingly. Follow the **Initiative Resolution** section to select the target initiative.
 2. Query existing Outcome nodes (root nodes with no parent).
 3. If outcomes exist, display them and ask the user how to proceed.
 4. Create or modify Outcome nodes as directed.
@@ -21,7 +21,7 @@ Define or modify the root Outcome nodes for an initiative's OST.
 
 #### Markdown backend
 
-1. Use the resolved initiative path (from initiative resolution in Step 1 of Workflow).
+1. Use the resolved initiative path from Step 1.
 2. Glob `{initiative-path}/OST/Outcomes/*.md`.
 3. Read each file's frontmatter to get name, status, and confidence.
 

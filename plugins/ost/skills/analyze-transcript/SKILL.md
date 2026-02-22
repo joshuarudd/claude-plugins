@@ -13,7 +13,7 @@ Systematically analyze an existing source document (transcript, meeting notes) f
 
 ## Workflow
 
-1. Resolve initiative and load backend config. See `skills/setup/initiative-resolution.md`.
+1. Resolve backend and initiative: read `## OST Configuration` from the project's CLAUDE.md to determine the backend. Read `skills/setup/markdown-backend.md` or `skills/setup/notion-backend.md` accordingly. Follow the **Initiative Resolution** section to select the target initiative.
 2. Gather source document: read the file at the provided path, or use pasted text from `$ARGUMENTS`.
 3. Gather interview metadata if apparent: participant name/codename, role, company, date. Ask the user if not clear from the content.
 4. Spawn a Task tool sub-agent (`subagent_type: "general-purpose"`) with the instructions below.
@@ -24,20 +24,9 @@ Systematically analyze an existing source document (transcript, meeting notes) f
 ### Context to include
 
 - The full source document text
-- The resolved initiative name
+- The resolved initiative name and path (markdown) or Notion page URL (Notion)
 - Interview metadata (participant, role, company, date) if available
-- The backend type and configuration details
 - The full contents of the appropriate backend reference file (`skills/setup/markdown-backend.md` or `skills/setup/notion-backend.md`)
-
-#### Markdown-specific context
-
-- The resolved initiative path (from initiative resolution)
-- The OST folder path: `{initiative-path}/OST/`
-
-#### Notion-specific context
-
-- The resolved initiative Notion page URL
-- The Notion data source IDs from the project's CLAUDE.md
 
 ### Sub-agent steps
 

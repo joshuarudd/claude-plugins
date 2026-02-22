@@ -9,7 +9,7 @@ Capture feedback and map it to OST Opportunity nodes, isolated from the main con
 
 ## Workflow
 
-1. Resolve initiative and load backend config. See `skills/setup/initiative-resolution.md`.
+1. Resolve backend and initiative: read `## OST Configuration` from the project's CLAUDE.md to determine the backend. Read `skills/setup/markdown-backend.md` or `skills/setup/notion-backend.md` accordingly. Follow the **Initiative Resolution** section to select the target initiative.
 2. Analyze feedback to identify distinct opportunities (each separate user problem or unmet need is one).
 3. Spawn a Task tool sub-agent (`subagent_type: "general-purpose"`) with the instructions below.
 4. Confirm what was created/updated with node names and a brief summary.
@@ -19,19 +19,8 @@ Capture feedback and map it to OST Opportunity nodes, isolated from the main con
 ### Context to include
 
 - The parsed feedback (separated into discrete opportunities if multiple)
-- The resolved initiative name
-- The backend type and configuration details
+- The resolved initiative name and path (markdown) or Notion page URL (Notion)
 - The full contents of the appropriate backend reference file (`skills/setup/markdown-backend.md` or `skills/setup/notion-backend.md`)
-
-#### Markdown-specific context
-
-- The resolved initiative path (from initiative resolution)
-- The OST folder path: `{initiative-path}/OST/`
-
-#### Notion-specific context
-
-- The resolved initiative Notion page URL
-- The Notion data source IDs from the project's CLAUDE.md
 
 ### Sub-agent steps
 

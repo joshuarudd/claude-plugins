@@ -19,11 +19,29 @@ The markdown backend is configured in the project's CLAUDE.md:
 
 - **`obsidian-features`** — enables Obsidian CLI search, Base file generation, and Canvas generation. Set to `false` for plain markdown.
 
-### Initiative format
+### Confidence scale
 
-Each initiative is listed as `- path` where path is the folder containing the `OST/` subfolder (relative to the vault or workspace root). A display label is derived by replacing `/` with ` / ` (e.g., `Aiwyn/Billing` → `Aiwyn / Billing`).
+Markdown uses integer **0–100** (e.g., `confidence: 50`). The Notion backend uses decimal 0–1 instead.
 
-One initiative = auto-selected. Multiple = prompted or matched from `$ARGUMENTS`. See `skills/setup/initiative-resolution.md` for full selection logic.
+## Initiative Resolution
+
+Every skill that operates on a specific initiative follows these steps.
+
+### 1. Read the initiatives list
+
+Check the project's CLAUDE.md for an `## OST Initiatives` section. Each initiative is listed as `- path` where path is the folder containing the `OST/` subfolder (relative to the vault or workspace root).
+
+A display label is derived by replacing `/` with ` / ` (e.g., `Aiwyn/Billing` → `Aiwyn / Billing`).
+
+### 2. Select an initiative
+
+- **One initiative listed** — use it automatically.
+- **Multiple listed** — if `$ARGUMENTS` matches (or is a substring of) a listed value, use it; otherwise show the list and ask the user.
+- **None listed** — check for a standalone `base-path` in `## OST Configuration` as a legacy fallback. If neither exists, tell the user to run `/ost:setup`.
+
+### 3. Resolve the path
+
+The selected initiative value IS the folder path. The OST folder is at `{initiative-path}/OST/`. Verify the folder exists before proceeding.
 
 ## Folder Structure
 
@@ -104,7 +122,7 @@ created-date: 2026-02-22
 
 ### Find OST Location
 
-1. Resolve the target initiative using `skills/setup/initiative-resolution.md`. The resolved initiative value is the folder path.
+1. Follow the Initiative Resolution steps above to get the initiative path.
 2. The OST folder is at `{initiative-path}/OST/`.
 3. Verify the folder exists. If not, create it along with the type subfolders.
 
