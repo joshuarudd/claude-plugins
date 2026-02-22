@@ -168,13 +168,13 @@ These features are only available when `obsidian-features: true` in the OST conf
 
 ### Search with Obsidian CLI
 
-When available, use the Obsidian CLI for faster search instead of Glob + Read:
+When available, use the Obsidian CLI (`Obsidian` is capitalized in PATH) for faster search instead of Glob + Read:
 
 ```
-obsidian search "query" --vault {vault-path}
+Obsidian search query=<text>
 ```
 
-Falls back to Glob + Grep when Obsidian CLI is not available.
+This uses Obsidian's index and understands aliases, tags, and frontmatter. Falls back to Glob + Grep when Obsidian CLI is not available.
 
 ### Canvas Generation (`OST.canvas`)
 
@@ -182,11 +182,13 @@ Generate an Obsidian Canvas file for interactive tree visualization. The canvas 
 
 Canvas JSON structure:
 
+Node and edge IDs must be **16-character lowercase hex strings** (e.g., `"6f0ad84f44ce9c17"`). Generate unique random hex IDs for each node and edge.
+
 ```json
 {
   "nodes": [
     {
-      "id": "node-1",
+      "id": "6f0ad84f44ce9c17",
       "type": "file",
       "file": "Aiwyn/Billing/OST/Outcomes/Increase billing adoption.md",
       "x": 0,
@@ -198,9 +200,9 @@ Canvas JSON structure:
   ],
   "edges": [
     {
-      "id": "edge-1",
-      "fromNode": "node-1",
-      "toNode": "node-2",
+      "id": "a3b2c1d0e9f8a7b6",
+      "fromNode": "6f0ad84f44ce9c17",
+      "toNode": "1a2b3c4d5e6f7a8b",
       "fromSide": "bottom",
       "toSide": "top"
     }

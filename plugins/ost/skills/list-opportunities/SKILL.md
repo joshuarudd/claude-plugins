@@ -87,3 +87,33 @@ Generate an Obsidian Canvas JSON file at `{base-path}/OST/OST.canvas`:
 #### Base (`OST.base`)
 
 Write the Base file at `{base-path}/OST/OST.base` using the template in `markdown-backend.md`. This provides tabular filtering and grouping in Obsidian.
+
+### 5. Mermaid Output (Both Backends, Optional)
+
+After displaying the text tree, also output a mermaid code block that can be copied into any note for an inline visual. This is lightweight and renders in Obsidian's reading view.
+
+````
+```mermaid
+graph TD
+    A["🎯 Outcome Name"] --> B["💡 Opportunity Name"]
+    A --> C["💡 Another Opportunity"]
+    B --> D["🔧 Solution Name"]
+
+    style A fill:#e0f7fa
+    style B fill:#fff9c4
+    style C fill:#fff9c4
+    style D fill:#c8e6c9
+```
+````
+
+Color mapping for mermaid `style` fills:
+
+| Type | Fill color |
+|------|-----------|
+| Outcome | `#e0f7fa` |
+| Opportunity | `#fff9c4` |
+| Solution | `#c8e6c9` |
+| Experiment | `#e1bee7` |
+| Assumption | `#ffe0b2` |
+
+Use short unique IDs (A, B, C...) for mermaid node references. Include the type icon in the label.

@@ -34,6 +34,15 @@ Based on the resolved backend, read the corresponding reference file from this p
 | `markdown` | `markdown-backend.md` | File operations, frontmatter schema, folder conventions, search patterns |
 | `notion` | `notion-backend.md` | MCP tool names, property mappings, data source patterns |
 
+### Important: Confidence Scale Difference
+
+The two backends use different confidence scales:
+
+- **Markdown**: integer 0–100 (e.g., `confidence: 50`)
+- **Notion**: decimal 0–1 (e.g., `Confidence: 0.5`). Notion displays this as a percentage automatically.
+
+Always use the correct scale for the active backend.
+
 ### 3. Proceed to Initiative Resolution
 
 After loading the backend reference, proceed to `skills/setup/initiative-resolution.md` to resolve the target initiative. Initiative resolution is backend-aware — it uses different strategies depending on the backend.
