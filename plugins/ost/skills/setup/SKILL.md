@@ -30,17 +30,19 @@ Based on the choice, guide the user through the appropriate setup flow.
 
 Read `skills/setup/markdown-backend.md` from this plugin for folder conventions and schema.
 
-#### 3a. Configure Base Path
-
-Ask the user for the base path — the product or topic folder that will contain the `OST/` subfolder. This is relative to the vault or workspace root.
-
-Example: `Aiwyn/Billing`
-
-#### 3b. Obsidian Features
+#### 3a. Obsidian Features
 
 Ask the user if they use Obsidian:
 - **Yes** — enable `obsidian-features: true` (Canvas + Base generation).
 - **No** — set `obsidian-features: false` (plain markdown, fully functional).
+
+#### 3b. Configure Initiatives
+
+Ask the user for one or more initiative paths — each is a product or topic folder (relative to the vault/workspace root) that will contain an `OST/` subfolder.
+
+Examples: `Aiwyn/Billing`, `Aiwyn/Design System`, `Collabrios/Color System`
+
+Each path identifies an initiative. The display label is derived by replacing `/` with ` / ` (e.g., `Aiwyn/Billing` → `Aiwyn / Billing`).
 
 #### 3c. Write Configuration
 
@@ -49,33 +51,25 @@ Guide the user to add the configuration to their project's CLAUDE.md:
 ```markdown
 ## OST Configuration
 - backend: markdown
-- base-path: {base-path}
 - obsidian-features: true
+
+## OST Initiatives
+- Aiwyn/Billing
+- Aiwyn/Design System
 ```
 
 #### 3d. Create Folder Structure
 
-Verify the OST folder structure exists at `{base-path}/OST/`. If not, create it:
+For each listed initiative, verify the OST folder structure exists at `{initiative-path}/OST/`. If not, create it:
 
 ```
-{base-path}/OST/
+{initiative-path}/OST/
   Outcomes/
   Opportunities/
   Solutions/
   Experiments/
   Assumptions/
 ```
-
-#### 3e. Configure Initiative
-
-Guide the user to add an `## OST Initiatives` section to their project's CLAUDE.md:
-
-```markdown
-## OST Initiatives
-- {Initiative Name}
-```
-
-For the markdown backend, the initiative name is a label used for display — the actual tree lives at the configured `base-path`.
 
 ### 4. Notion Backend Setup
 
@@ -135,11 +129,11 @@ If no `## OST Configuration` section exists, guide the user to add:
 Check if the project's CLAUDE.md contains an `## OST Initiatives` section.
 
 - **Found** — display the configured initiatives and confirm they look correct.
-- **Not found** — guide the user to add it:
+- **Not found** — guide the user to add it. For Notion, each listed value is the initiative name in the database:
 
 ```markdown
 ## OST Initiatives
-- <Initiative Name>
+- My Initiative Name
 ```
 
 One initiative = automatic selection; multiple = prompted each time.

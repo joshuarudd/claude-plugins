@@ -31,8 +31,8 @@ Systematically analyze an existing source document (transcript, meeting notes) f
 
 #### Markdown-specific context
 
-- The `base-path` from `## OST Configuration`
-- The OST folder path: `{base-path}/OST/`
+- The resolved initiative path (from initiative resolution)
+- The OST folder path: `{initiative-path}/OST/`
 
 #### Notion-specific context
 
@@ -43,14 +43,14 @@ Systematically analyze an existing source document (transcript, meeting notes) f
 
 #### Markdown backend
 
-1. Load backend config. If `base-path` is missing, stop and tell user to run `/ost:setup`.
+1. Use the resolved initiative path. If missing, stop and tell user to run `/ost:setup`.
 2. **Extract opportunities** from the source document:
    - Pain points and frustrations
    - Unmet needs or desires
    - Workarounds created by participant
    - Moments of confusion or difficulty
    - Feature requests (reframe as underlying need)
-3. Glob `{base-path}/OST/Opportunities/*.md` to find existing Opportunity nodes.
+3. Glob `{initiative-path}/OST/Opportunities/*.md` to find existing Opportunity nodes.
 4. For each extracted opportunity:
    a. Read existing nodes' frontmatter and body. Search for a **semantic match** — same underlying user problem, even if worded differently.
    b. **Match found** — update the existing file:
@@ -58,7 +58,7 @@ Systematically analyze an existing source document (transcript, meeting notes) f
       - Add source wikilink to `source-interviews` list in frontmatter
       - Add new evidence quotes to the body
       - Update `confidence` if warranted (more evidence = higher confidence)
-   c. **No match** — create a new `.md` file in `{base-path}/OST/Opportunities/`:
+   c. **No match** — create a new `.md` file in `{initiative-path}/OST/Opportunities/`:
       - Filename: `{User problem description}.md`
       - Frontmatter: `ost-type: Opportunity`, `status: Active`, `confidence: 50`, `parent` (link to most relevant Outcome if obvious), `evidence-summary`, `source-interviews` with wikilink to source document, `created-date`
       - Body: `## Evidence` section with relevant quotes from the source

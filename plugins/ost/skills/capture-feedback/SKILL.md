@@ -25,8 +25,8 @@ Capture feedback and map it to OST Opportunity nodes, isolated from the main con
 
 #### Markdown-specific context
 
-- The `base-path` from `## OST Configuration`
-- The OST folder path: `{base-path}/OST/`
+- The resolved initiative path (from initiative resolution)
+- The OST folder path: `{initiative-path}/OST/`
 
 #### Notion-specific context
 
@@ -37,12 +37,12 @@ Capture feedback and map it to OST Opportunity nodes, isolated from the main con
 
 #### Markdown backend
 
-1. Load backend config. If `base-path` is missing, stop and tell user to run `/ost:setup`.
-2. Glob `{base-path}/OST/Opportunities/*.md` to find existing Opportunity nodes.
+1. Use the resolved initiative path. If missing, stop and tell user to run `/ost:setup`.
+2. Glob `{initiative-path}/OST/Opportunities/*.md` to find existing Opportunity nodes.
 3. For each discrete opportunity:
    a. Read existing nodes' frontmatter and body. Search for a **semantic match** — same underlying user problem, even if worded differently.
    b. **Match found** — update the existing file: append to `evidence-summary`, add new evidence quotes to the body, update `confidence` if warranted.
-   c. **No match** — create a new `.md` file in `{base-path}/OST/Opportunities/`:
+   c. **No match** — create a new `.md` file in `{initiative-path}/OST/Opportunities/`:
       - Filename: `{User problem description}.md`
       - Frontmatter: `ost-type: Opportunity`, `status: Active`, `confidence: 50`, `parent` (link to most relevant Outcome if obvious, otherwise omit), `evidence-summary`, `created-date`
       - Body: `## Evidence` section with the feedback quotes/context.

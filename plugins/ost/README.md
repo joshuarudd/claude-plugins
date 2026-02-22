@@ -24,7 +24,7 @@ Local `.md` files with YAML frontmatter. No external dependencies.
 
 **Folder structure:**
 ```
-{base-path}/
+{initiative-path}/
   OST/
     Outcomes/
     Opportunities/
@@ -43,12 +43,14 @@ Each node is a markdown file with frontmatter (`ost-type`, `status`, `confidence
 ```markdown
 ## OST Configuration
 - backend: markdown
-- base-path: Aiwyn/Billing
 - obsidian-features: true
 
 ## OST Initiatives
-- Billing
+- Aiwyn/Billing
+- Aiwyn/Design System
 ```
+
+Each initiative is a folder path (relative to vault root) containing the `OST/` subfolder. Display labels are derived by replacing `/` with ` / `. One listed = auto-selected; multiple = prompted.
 
 ### Notion Backend
 
@@ -74,7 +76,7 @@ See `skills/setup/notion-backend.md` for database schema.
 
 Run `/ost:setup` to be guided through configuration, or add the sections to your project's CLAUDE.md manually.
 
-**Initiatives**: One listed = used automatically. Multiple = you'll be prompted. None = queries backend.
+**Initiatives**: Each listed value is a folder path (markdown) or initiative name (Notion). One listed = used automatically. Multiple = you'll be prompted. None = queries backend.
 
 ## Installation
 

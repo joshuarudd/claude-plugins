@@ -21,8 +21,8 @@ Query the configured backend and display the Opportunity Solution Tree as a hier
 
 #### Markdown backend
 
-1. Read `base-path` from `## OST Configuration` in the project's CLAUDE.md.
-2. Glob all `{base-path}/OST/**/*.md` files.
+1. Use the resolved initiative path (from initiative resolution in Step 1 of Workflow).
+2. Glob all `{initiative-path}/OST/**/*.md` files.
 3. Read each file's frontmatter: `ost-type`, `status`, `confidence`, `parent`, `evidence-summary`.
 
 #### Notion backend
@@ -77,7 +77,7 @@ Only when `obsidian-features: true` in the OST configuration. Reference `skills/
 
 #### Canvas (`OST.canvas`)
 
-Generate an Obsidian Canvas JSON file at `{base-path}/OST/OST.canvas`:
+Generate an Obsidian Canvas JSON file at `{initiative-path}/OST/OST.canvas`:
 
 1. Create a `file` type node for each OST node, referencing the actual `.md` file path.
 2. Assign colors by node type (see `markdown-backend.md` for color codes).
@@ -86,7 +86,7 @@ Generate an Obsidian Canvas JSON file at `{base-path}/OST/OST.canvas`:
 
 #### Base (`OST.base`)
 
-Write the Base file at `{base-path}/OST/OST.base` using the template in `markdown-backend.md`. This provides tabular filtering and grouping in Obsidian.
+Write the Base file at `{initiative-path}/OST/OST.base` using the template in `markdown-backend.md`. This provides tabular filtering and grouping in Obsidian.
 
 ### 5. Mermaid Output (Both Backends, Optional)
 

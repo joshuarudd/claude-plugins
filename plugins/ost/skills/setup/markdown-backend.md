@@ -9,19 +9,28 @@ The markdown backend is configured in the project's CLAUDE.md:
 ```markdown
 ## OST Configuration
 - backend: markdown
-- base-path: Aiwyn/Billing
 - obsidian-features: true
+
+## OST Initiatives
+- Aiwyn/Billing
+- Aiwyn/Design System
+- Collabrios/Color System
 ```
 
-- **`base-path`** — the product or topic folder containing the `OST/` subfolder. Relative to the vault or workspace root.
 - **`obsidian-features`** — enables Obsidian CLI search, Base file generation, and Canvas generation. Set to `false` for plain markdown.
+
+### Initiative format
+
+Each initiative is listed as `- path` where path is the folder containing the `OST/` subfolder (relative to the vault or workspace root). A display label is derived by replacing `/` with ` / ` (e.g., `Aiwyn/Billing` → `Aiwyn / Billing`).
+
+One initiative = auto-selected. Multiple = prompted or matched from `$ARGUMENTS`. See `skills/setup/initiative-resolution.md` for full selection logic.
 
 ## Folder Structure
 
 The OST lives inside the configured base path as an `OST/` subfolder:
 
 ```
-{base-path}/
+{initiative-path}/
   OST/
     Outcomes/
       Increase billing adoption.md
@@ -95,21 +104,21 @@ created-date: 2026-02-22
 
 ### Find OST Location
 
-1. Read `base-path` from the `## OST Configuration` section in the project's CLAUDE.md.
-2. The OST folder is at `{base-path}/OST/`.
+1. Resolve the target initiative using `skills/setup/initiative-resolution.md`. The resolved initiative value is the folder path.
+2. The OST folder is at `{initiative-path}/OST/`.
 3. Verify the folder exists. If not, create it along with the type subfolders.
 
 ### Search for Existing Node
 
 Search for a node by name or semantic match:
 
-1. Glob `{base-path}/OST/{type}/*.md` (or `{base-path}/OST/**/*.md` to search all types).
+1. Glob `{initiative-path}/OST/{type}/*.md` (or `{initiative-path}/OST/**/*.md` to search all types).
 2. Read frontmatter from each matching file.
 3. Use semantic matching (Claude judges whether the node describes the same user problem or concept, even if worded differently).
 
 Example search pattern:
 ```
-Glob: {base-path}/OST/Opportunities/*.md
+Glob: {initiative-path}/OST/Opportunities/*.md
 ```
 
 Then read each file's frontmatter and title to find semantic matches.
@@ -153,7 +162,7 @@ Read the file directly. Parse YAML frontmatter (between `---` delimiters) and ma
 
 ### List Tree
 
-1. Glob all `{base-path}/OST/**/*.md` files.
+1. Glob all `{initiative-path}/OST/**/*.md` files.
 2. Read each file's frontmatter: `ost-type`, `status`, `confidence`, `parent`, `evidence-summary`.
 3. Build the tree by following `parent` wikilinks (extract the note name from `[[Note Name]]`).
 4. Outcomes (no parent) are root nodes.
@@ -216,7 +225,7 @@ Layout rules:
 - **Edges**: Follow `parent` relationships, flowing top to bottom.
 - **Spacing**: 350px horizontal between siblings, 150px vertical between levels.
 
-Write to `{base-path}/OST/OST.canvas`.
+Write to `{initiative-path}/OST/OST.canvas`.
 
 ### Base File Generation (`OST.base`)
 
@@ -265,7 +274,7 @@ views:
       - evidence-summary
 ```
 
-Write to `{base-path}/OST/OST.base`.
+Write to `{initiative-path}/OST/OST.base`.
 
 ## Interviews and Source Documents
 

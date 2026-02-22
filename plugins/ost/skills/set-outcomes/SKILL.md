@@ -21,8 +21,8 @@ Define or modify the root Outcome nodes for an initiative's OST.
 
 #### Markdown backend
 
-1. Read `base-path` from `## OST Configuration` in the project's CLAUDE.md.
-2. Glob `{base-path}/OST/Outcomes/*.md`.
+1. Use the resolved initiative path (from initiative resolution in Step 1 of Workflow).
+2. Glob `{initiative-path}/OST/Outcomes/*.md`.
 3. Read each file's frontmatter to get name, status, and confidence.
 
 #### Notion backend
@@ -49,7 +49,7 @@ Search for OST Nodes linked to the resolved Initiative. Filter to Type=Outcome a
 
 #### Markdown backend
 
-For each outcome, write a new file in `{base-path}/OST/Outcomes/`:
+For each outcome, write a new file in `{initiative-path}/OST/Outcomes/`:
 
 - **Filename**: `{Outcome description}.md`
 - **Frontmatter**: `ost-type: Outcome`, `status: Active`, `confidence: 50`, `created-date: {today}`
