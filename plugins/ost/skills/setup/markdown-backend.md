@@ -220,8 +220,8 @@ Node and edge IDs must be **16-character lowercase hex strings** (e.g., `"6f0ad8
       "file": "Aiwyn/Billing/OST/Outcomes/Increase billing adoption.md",
       "x": 0,
       "y": 0,
-      "width": 300,
-      "height": 60,
+      "width": 400,
+      "height": 400,
       "color": "5"
     }
   ],
@@ -241,7 +241,7 @@ Layout rules:
 - **Top-down tree**: Outcomes at top, Opportunities below, Solutions below that, etc.
 - **Colors**: By node type (see Node type subfolders table).
 - **Edges**: Follow `parent` relationships, flowing top to bottom.
-- **Spacing**: 350px horizontal between siblings, 150px vertical between levels.
+- **Spacing**: 500px horizontal between siblings, 500px vertical between levels.
 
 Write to `{initiative-path}/OST/OST.canvas`.
 
