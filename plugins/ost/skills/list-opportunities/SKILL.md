@@ -79,10 +79,7 @@ Only when `obsidian-features: true` in the OST configuration. Reference `skills/
 
 Generate an Obsidian Canvas JSON file at `{initiative-path}/OST/OST.canvas`:
 
-1. Create a `file` type node for each OST node, referencing the actual `.md` file path.
-2. Assign colors by node type (see `markdown-backend.md` for color codes).
-3. Layout top-down: Outcomes at y=0, each level 150px below, siblings 350px apart horizontally.
-4. Create edges following `parent` relationships, from parent bottom to child top.
+Follow the Canvas Generation section in `markdown-backend.md` for node dimensions, colors, layout, and edge rules.
 
 #### Base (`OST.base`)
 

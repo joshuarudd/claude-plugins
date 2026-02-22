@@ -1,7 +1,7 @@
 {
   "name": "ost",
   "description": "Opportunity Solution Tree (OST) workflows for continuous discovery. Capture feedback, analyze transcripts, and map opportunities. Supports markdown files or Notion as the data layer.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": {
     "name": "Joshua Rudd"
   },
