@@ -20,8 +20,8 @@
     {
       "name": "ost",
       "source": "./plugins/ost",
-      "description": "Opportunity Solution Tree workflows for continuous discovery. Capture feedback, process transcripts, and map opportunities in Notion.",
-      "version": "1.0.0"
+      "description": "Opportunity Solution Tree workflows for continuous discovery. Capture feedback, analyze transcripts, and map opportunities. Supports markdown files or Notion as the data layer.",
+      "version": "2.0.0"
     }
   ]
 }

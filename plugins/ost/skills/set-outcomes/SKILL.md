@@ -9,8 +9,8 @@ Define or modify the root Outcome nodes for an initiative's OST.
 
 ## Workflow
 
-1. Resolve Initiative and load Notion config. See `skills/setup/initiative-resolution.md`.
-2. Query existing Outcome nodes (Type=Outcome, no Parent).
+1. Resolve backend and initiative: read `## OST Configuration` from the project's CLAUDE.md to determine the backend. Read the **Initiative Resolution**, **Frontmatter Schema**, and **Operations** sections from `skills/setup/markdown-backend.md` or `skills/setup/notion-backend.md` accordingly. Follow the **Initiative Resolution** section to select the target initiative.
+2. Query existing Outcome nodes (root nodes with no parent).
 3. If outcomes exist, display them and ask the user how to proceed.
 4. Create or modify Outcome nodes as directed.
 5. Summarize what was created or updated.
@@ -18,6 +18,14 @@ Define or modify the root Outcome nodes for an initiative's OST.
 ## Steps
 
 ### 1. Find Existing Outcomes
+
+#### Markdown backend
+
+1. Use the resolved initiative path from Step 1.
+2. Glob `{initiative-path}/OST/Outcomes/*.md`.
+3. Read each file's frontmatter to get name, status, and confidence.
+
+#### Notion backend
 
 Search for OST Nodes linked to the resolved Initiative. Filter to Type=Outcome and Parent is empty (root nodes).
 
@@ -39,18 +47,32 @@ Search for OST Nodes linked to the resolved Initiative. Filter to Type=Outcome a
 
 ### 4. Create Outcome Nodes
 
+#### Markdown backend
+
+For each outcome, write a new file in `{initiative-path}/OST/Outcomes/`:
+
+- **Filename**: `{Outcome description}.md`
+- **Frontmatter**: `ost-type: Outcome`, `status: Active`, `confidence: 50`, `created-date: {today}`
+- **No `parent`** field (root nodes)
+
+Reference `skills/setup/markdown-backend.md` for the full frontmatter schema.
+
+#### Notion backend
+
 For each outcome, create an OST Node:
 
 - **Name**: the outcome description
 - **Type**: Outcome
 - **Initiative**: link to Initiative page URL
 - **Status**: Active
-- **Confidence**: 50
+- **Confidence**: 0.5
 - **Parent**: empty (root nodes)
+
+Reference `skills/setup/notion-backend.md` for tool names and property mappings.
 
 ### 5. Summarize
 
-Report what was created/modified. Suggest next steps: `/ost:capture-feedback` or `/ost:process-transcript` to start adding Opportunities.
+Report what was created/modified. Suggest next steps: `/ost:capture-feedback` or `/ost:analyze-transcript` to start adding Opportunities.
 
 ## Input
 

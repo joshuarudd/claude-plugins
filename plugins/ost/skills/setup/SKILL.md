@@ -1,6 +1,6 @@
 ---
 name: setup
-description: Use when first using the OST plugin in a project, or when Notion connectivity, databases, or data source configuration needs to be verified.
+description: Use when first using the OST plugin in a project, when switching backends, or when backend connectivity and data source configuration needs to be verified.
 ---
 
 # OST Setup
@@ -9,7 +9,73 @@ Verify the OST system is properly configured and guide the user through project-
 
 ## Steps
 
-### 1. Verify Notion MCP Connection
+### 1. Check for Existing Configuration
+
+Check the project's CLAUDE.md for an `## OST Configuration` section.
+
+- **Found** — read the configured backend and proceed to verify it (Step 3 for markdown, Step 4 for Notion).
+- **Legacy config found** — if there's an `## OST Notion Data Sources` section but no `## OST Configuration`, treat as `backend: notion` and proceed to Step 4.
+- **Not found** — proceed to Step 2 to choose a backend.
+
+### 2. Choose Backend
+
+Ask the user which backend to use:
+
+- **Markdown** — local files as the source of truth. Best for Obsidian vaults or any markdown-based workflow. No external dependencies.
+- **Notion** — uses Notion databases. Requires Notion MCP server connection and three databases (Initiatives, OST Nodes, Interviews).
+
+Based on the choice, guide the user through the appropriate setup flow.
+
+### 3. Markdown Backend Setup
+
+Read `skills/setup/markdown-backend.md` from this plugin for folder conventions and schema.
+
+#### 3a. Obsidian Features
+
+Ask the user if they use Obsidian:
+- **Yes** — enable `obsidian-features: true` (Canvas + Base generation).
+- **No** — set `obsidian-features: false` (plain markdown, fully functional).
+
+#### 3b. Configure Initiatives
+
+Ask the user for one or more initiative paths — each is a product or topic folder (relative to the vault/workspace root) that will contain an `OST/` subfolder.
+
+Examples: `Aiwyn/Billing`, `Aiwyn/Design System`, `Collabrios/Color System`
+
+Each path identifies an initiative. The display label is derived by replacing `/` with ` / ` (e.g., `Aiwyn/Billing` → `Aiwyn / Billing`).
+
+#### 3c. Write Configuration
+
+Guide the user to add the configuration to their project's CLAUDE.md:
+
+```markdown
+## OST Configuration
+- backend: markdown
+- obsidian-features: true
+
+## OST Initiatives
+- Aiwyn/Billing
+- Aiwyn/Design System
+```
+
+#### 3d. Create Folder Structure
+
+For each listed initiative, verify the OST folder structure exists at `{initiative-path}/OST/`. If not, create it:
+
+```
+{initiative-path}/OST/
+  Outcomes/
+  Opportunities/
+  Solutions/
+  Experiments/
+  Assumptions/
+```
+
+### 4. Notion Backend Setup
+
+Read `skills/setup/notion-backend.md` from this plugin for tool names and property mappings.
+
+#### 4a. Verify Notion MCP Connection
 
 Test that the Notion MCP tools are available by running a search:
 
@@ -21,7 +87,7 @@ Parameters:
 
 If this fails, tell the user they need to connect the Notion MCP server in Claude Code and provide a link to [Notion MCP docs](https://www.notion.com/help/mcp).
 
-### 2. Verify Databases Exist
+#### 4b. Verify Databases Exist
 
 Search for each database to verify access:
 
@@ -29,9 +95,9 @@ Search for each database to verify access:
 - **OST Nodes** — search for any existing node
 - **Interviews** — search for any existing interview
 
-Report the status of each. If any are missing, describe the expected schema (reference `notion-backend.md` in this skill directory).
+Report the status of each. If any are missing, describe the expected schema (reference `notion-backend.md`).
 
-### 3. Discover and Configure Notion Data Source IDs
+#### 4c. Discover and Configure Notion Data Source IDs
 
 Check if the project's CLAUDE.md contains an `## OST Notion Data Sources` section.
 
@@ -49,23 +115,30 @@ Check if the project's CLAUDE.md contains an `## OST Notion Data Sources` sectio
 - Interviews: <discovered-id>
 ```
 
-These IDs are workspace-specific and required for all OST skills.
+#### 4d. Write Configuration
 
-### 4. Check Project Initiatives
+If no `## OST Configuration` section exists, guide the user to add:
+
+```markdown
+## OST Configuration
+- backend: notion
+```
+
+#### 4e. Check Project Initiatives
 
 Check if the project's CLAUDE.md contains an `## OST Initiatives` section.
 
 - **Found** — display the configured initiatives and confirm they look correct.
-- **Not found** — guide the user to add it:
+- **Not found** — guide the user to add it. For Notion, each listed value is the initiative name in the database:
 
 ```markdown
 ## OST Initiatives
-- <Initiative Name>
+- My Initiative Name
 ```
 
 One initiative = automatic selection; multiple = prompted each time.
 
-### 5. Optionally Create a New Initiative
+#### 4f. Optionally Create a New Initiative
 
 Ask the user if they'd like to create a new Initiative. If yes:
 
@@ -76,8 +149,9 @@ Ask the user if they'd like to create a new Initiative. If yes:
 ## Output
 
 Summarize:
-- Notion connection: connected / not connected
-- Databases: accessible / missing
-- Data source IDs: configured / needs setup
+- Backend: markdown / notion
+- Configuration: complete / needs setup
+- For markdown: folder structure created / exists
+- For Notion: connection status, databases accessible / missing, data source IDs configured / needs setup
 - Project initiatives: configured / needs setup
-- Next steps
+- Next steps: suggest `/ost:set-outcomes` to define root goals
