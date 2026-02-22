@@ -25,6 +25,8 @@ Then install any available plugin:
 | Plugin | Description |
 |--------|-------------|
 | [helpers](plugins/helpers/) | General improvements to Claude's behavior — date lookups, and more to come. |
+| [issue-tracker](plugins/issue-tracker/) | Capture and track actionable issues during development sessions. |
+| [ost](plugins/ost/) | Opportunity Solution Tree workflows for continuous discovery. Supports markdown files or Notion. |
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add your own.
 
