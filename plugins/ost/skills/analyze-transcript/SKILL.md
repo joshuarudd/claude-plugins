@@ -26,7 +26,7 @@ Systematically analyze an existing source document (transcript, meeting notes) f
 - The full source document text
 - The resolved initiative name and path (markdown) or Notion page URL (Notion)
 - Interview metadata (participant, role, company, date) if available
-- The full contents of the appropriate backend reference file (`skills/setup/markdown-backend.md` or `skills/setup/notion-backend.md`)
+- The relevant sections of the backend reference file (`skills/setup/markdown-backend.md` or `skills/setup/notion-backend.md`): **Frontmatter Schema**, **Operations** (Search for Existing Node, Create Node, Update Node), and **Folder Structure**. Skip Obsidian-Specific Enhancements, Canvas/Base generation, and Data Model Comparison.
 
 ### Sub-agent steps
 

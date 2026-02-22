@@ -1,6 +1,6 @@
 ---
 name: setup
-description: Use when first using the OST plugin in a project, or when Notion connectivity, databases, or data source configuration needs to be verified.
+description: Use when first using the OST plugin in a project, when switching backends, or when backend connectivity and data source configuration needs to be verified.
 ---
 
 # OST Setup

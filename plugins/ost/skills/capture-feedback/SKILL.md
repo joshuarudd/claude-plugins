@@ -20,7 +20,7 @@ Capture feedback and map it to OST Opportunity nodes, isolated from the main con
 
 - The parsed feedback (separated into discrete opportunities if multiple)
 - The resolved initiative name and path (markdown) or Notion page URL (Notion)
-- The full contents of the appropriate backend reference file (`skills/setup/markdown-backend.md` or `skills/setup/notion-backend.md`)
+- The relevant sections of the backend reference file (`skills/setup/markdown-backend.md` or `skills/setup/notion-backend.md`): **Frontmatter Schema**, **Operations** (Search for Existing Node, Create Node, Update Node), and **Folder Structure**. Skip Obsidian-Specific Enhancements, Canvas/Base generation, and Data Model Comparison.
 
 ### Sub-agent steps
 
